@@ -1,1 +1,129 @@
-{"collection":{"info":{"_postman_id":"f43929ba-fe54-4501-ae14-c5328f0d8fd5","name":"1_Log-in","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json","updatedAt":"2024-11-14T19:18:30.000Z","createdAt":"2024-11-14T14:20:38.000Z","lastUpdatedBy":"31996416","uid":"31996416-f43929ba-fe54-4501-ae14-c5328f0d8fd5"},"item":[{"name":"local","event":[{"listen":"test","script":{"id":"52b99cde-43e9-4013-97db-55dde16e0baf","exec":["// Parse the JSON response","var jsonData = pm.response.json();","","// Extract the token from the response","var token = jsonData.Message[0].token;","","// Save the token to an environment variable","pm.globals.set(\"token-local\", token);","","// Log the token to the console (optional, for debugging purposes)","console.log(\"Token saved to environment variable:\", token);",""],"type":"text/javascript","packages":{}}}],"id":"d825510c-3e6a-4cb6-ae28-6b4992267eff","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"POST","header":[],"body":{"mode":"raw","raw":"{\n  \"username\": \"suresh011112222\",\n  \"userpassword\": \"welcome1\"\n}\n\n","options":{"raw":{"language":"json"}}},"url":{"raw":"{{loc}}/api/users/login","host":["{{loc}}"],"path":["api","users","login"]}},"response":[],"uid":"31996416-d825510c-3e6a-4cb6-ae28-6b4992267eff"},{"name":"server","event":[{"listen":"test","script":{"id":"52b99cde-43e9-4013-97db-55dde16e0baf","exec":["// Parse the JSON response","var jsonData = pm.response.json();","","// Extract the token from the response","var token = jsonData.Message[0].token;","","// Save the token to an environment variable","pm.globals.set(\"token-local\", token);","","// Log the token to the console (optional, for debugging purposes)","console.log(\"Token saved to environment variable:\", token);",""],"type":"text/javascript","packages":{}}}],"id":"ebe4c25a-7cd2-4c0b-baff-4084ec3d63a9","protocolProfileBehavior":{"disableBodyPruning":true},"request":{"method":"POST","header":[],"body":{"mode":"raw","raw":"{\n  \"username\": \"suresh01\",\n  \"userpassword\": \"welcome1\"\n}\n\n","options":{"raw":{"language":"json"}}},"url":{"raw":"{{ser}}/api/users/login","host":["{{ser}}"],"path":["api","users","login"]}},"response":[],"uid":"31996416-ebe4c25a-7cd2-4c0b-baff-4084ec3d63a9"}]}}
+{
+  "collection": {
+    "info": {
+      "_postman_id": "f43929ba-fe54-4501-ae14-c5328f0d8fd5",
+      "name": "1_Log-in",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2024-11-14T20:07:06.000Z",
+      "createdAt": "2024-11-14T14:20:38.000Z",
+      "lastUpdatedBy": "31996416",
+      "uid": "31996416-f43929ba-fe54-4501-ae14-c5328f0d8fd5"
+    },
+    "item": [
+      {
+        "name": "local",
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "52b99cde-43e9-4013-97db-55dde16e0baf",
+              "exec": [
+                "// Parse the JSON response",
+                "var jsonData = pm.response.json();",
+                "",
+                "// Extract the token from the response",
+                "var token = jsonData.Message[0].token;",
+                "",
+                "// Save the token to an environment variable",
+                "pm.globals.set(\"token-local\", token);",
+                "",
+                "// Log the token to the console (optional, for debugging purposes)",
+                "console.log(\"Token saved to environment variable:\", token);",
+                ""
+              ],
+              "type": "text/javascript",
+              "packages": {}
+            }
+          }
+        ],
+        "id": "d825510c-3e6a-4cb6-ae28-6b4992267eff",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"suresh011112222\",\n  \"userpassword\": \"welcome1hhhhhhnjnj\"\n}\n\n",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{loc}}/api/users/login",
+            "host": [
+              "{{loc}}"
+            ],
+            "path": [
+              "api",
+              "users",
+              "login"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "31996416-d825510c-3e6a-4cb6-ae28-6b4992267eff"
+      },
+      {
+        "name": "server",
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "52b99cde-43e9-4013-97db-55dde16e0baf",
+              "exec": [
+                "// Parse the JSON response",
+                "var jsonData = pm.response.json();",
+                "",
+                "// Extract the token from the response",
+                "var token = jsonData.Message[0].token;",
+                "",
+                "// Save the token to an environment variable",
+                "pm.globals.set(\"token-local\", token);",
+                "",
+                "// Log the token to the console (optional, for debugging purposes)",
+                "console.log(\"Token saved to environment variable:\", token);",
+                ""
+              ],
+              "type": "text/javascript",
+              "packages": {}
+            }
+          }
+        ],
+        "id": "ebe4c25a-7cd2-4c0b-baff-4084ec3d63a9",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"suresh01\",\n  \"userpassword\": \"welcome1\"\n}\n\n",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{ser}}/api/users/login",
+            "host": [
+              "{{ser}}"
+            ],
+            "path": [
+              "api",
+              "users",
+              "login"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "31996416-ebe4c25a-7cd2-4c0b-baff-4084ec3d63a9"
+      }
+    ]
+  }
+}
