@@ -4,7 +4,7 @@
       "_postman_id": "88476599-5f6d-4d8d-8b68-125f63fef975",
       "name": "chetan01",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2024-11-15T11:42:37.000Z",
+      "updatedAt": "2024-11-15T11:44:53.000Z",
       "createdAt": "2024-11-15T11:41:35.000Z",
       "lastUpdatedBy": "31996416",
       "uid": "31996416-88476599-5f6d-4d8d-8b68-125f63fef975"
@@ -21,7 +21,7 @@
           "header": [],
           "body": {
             "mode": "raw",
-            "raw": "{}",
+            "raw": "{ \"test\": 1234}",
             "options": {
               "raw": {
                 "language": "json"
