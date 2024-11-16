@@ -24,8 +24,6 @@ This tool is ideal for organizations looking to streamline the management of sha
 
 - Synchronize Postman collections with a Git repository.
 - Maintain a centralized and version-controlled source of collections.
-- Schedule automatic syncing to ensure collections are always up-to-date.
-- Resolve merge conflicts during synchronization.
 - Simplify team collaboration on API workflows.
 - Secure integration with Postman API and Git.
 
