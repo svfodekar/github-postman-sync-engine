@@ -1,0 +1,16 @@
+{
+  "name": "sync-postman",
+  "version": "1.2.0",
+  "description": "CLI tool to sync Postman collections with GitHub for free",
+  "main": "bin/sync-postman.js",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "prompt-sync": "^4.2.0",
+    "simple-git": "^3.19.1"
+  }
+}
