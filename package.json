@@ -1,7 +1,7 @@
 {
   "name": "Git-Postman Syncup Engine",
   "version": "1.0.0",
-  "description": "A tool for maintaining the postman collection on git and keep it in sync.",
+  "description": "Git-Postman Sync Engine is an application designed to synchronize your Postman collections with a Git repository. It ensures centralized management and version control of collections",
   "main": "app.js",
   "bin": "app.js",
   "scripts": {
