@@ -28,3 +28,7 @@ This tool is ideal for organizations looking to streamline the management of sha
    ```bash
    git clone https://github.com/yourusername/git-postman-sync-engine.git
    cd git-postman-sync-engine
+2. Create executable file:
+   ```bash
+   pkg package.json --targets node18-win-x64, node18-macos-x64, node18-linux-x64
+3. open the exicutable file and use the "help" commands to know more
