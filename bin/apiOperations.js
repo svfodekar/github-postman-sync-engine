@@ -1,5 +1,4 @@
 const axios = require('axios');
-
 const postmanApiUrl = 'https://api.getpostman.com';
 
 // Get Postman collections
