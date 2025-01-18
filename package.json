@@ -1,16 +1,25 @@
 {
-  "name": "sync-postman",
-  "version": "1.2.0",
-  "description": "CLI tool to sync Postman collections with GitHub for free",
-  "main": "bin/sync-postman.js",
+  "name": "Git-Postman Syncup Engine",
+  "version": "1.0.0",
+  "description": "A tool for maintaining the postman collection on git and keep it in sync.",
+  "main": "app.js",
+  "bin": "app.js",
   "scripts": {
-    "test": "echo \"No test specified\" && exit 1"
+    "start": "node app.js"
   },
   "dependencies": {
-    "axios": "^1.4.0",
-    "commander": "^11.0.0",
-    "dotenv": "^16.3.1",
-    "prompt-sync": "^4.2.0",
-    "simple-git": "^3.19.1"
+    "axios": "^1.7.9",
+    "pkg": "^5.8.1"
+  },
+  "keywords": [],
+  "author": "Chetan & Saurabh",
+  "license": "ISC",
+  "pkg": {
+    "assets": [
+      "bin/**/*",
+      "config.json",
+      "node_modules/axios/dist/**/*",
+      "node_modules/axios/lib/**/*"
+    ]
   }
 }
