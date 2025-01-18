@@ -1,8 +1,6 @@
 const readline = require('readline');
 const TerminalOpn = require('./bin/terminalOperations');
 
-//pkg package.json --targets node18-win-x64, node18-macos-x64, node18-linux-x64
-
 // Create an interface for terminal input
 const rl = readline.createInterface({
     input: process.stdin,
