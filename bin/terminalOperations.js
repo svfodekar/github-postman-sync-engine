@@ -111,7 +111,7 @@ async function showHelp() {
     - git pull <branch-name>
     - git pull hard <branch-name>
     - git push <base-branch> <existing/new-branch-name> "<message>"
-    - clear: Clears the terminal screen
+    - clear
     - help
     - exit
     `);
