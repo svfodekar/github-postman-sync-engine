@@ -1,4 +1,5 @@
 const axios = require('axios');
+
 const postmanApiUrl = 'https://api.getpostman.com';
 
 // Get Postman collections
@@ -133,17 +134,19 @@ async function ensureBaseBranchExists(config, baseBranch) {
                 console.log(`Base branch '${baseBranch}' created successfully with an initial commit.`);
             } catch (initError) {
                 if (initError.response?.status === 403) {
-                    console.error(`You do not have permission to initialize the repository. Please ask the owner to create the base branch.`);
+                    error.message = `You do not have permission to initialize the repository. Please ask the owner to create the base branch.`;
                 } else {
-                    console.error(`Error initializing repository with branch '${baseBranch}':`, initError.message);
+                    error.message = `Error initializing repository with branch '${baseBranch}': ${initError.message}`
                 }
                 throw initError;
             }
         } else if (error.response?.status === 403) {
-            console.error(`You do not have permission to access the repository.`);
+            error.message = `You do not have permission to access the repository.`;
+            throw error;
+        } else if (error.response?.status === 404) {
+            error.message = 'GitHub User, Repository or Branch may not exist.';
             throw error;
         } else {
-            //console.error(`Error checking base branch '${baseBranch}':`, error.message);
             throw error;
         }
     }
@@ -198,15 +201,38 @@ async function createPullRequest(config, branchName, baseBranch = 'main', commit
             },
             { headers: { Authorization: `token ${config.GITHUB_TOKEN}` } }
         );
-        const url = response.data.html_url;
-        const text = response.data.html_url;
-        const hyperlink = `\x1b]8;;${url}\x1b\\\x1b[32m${text}\x1b[0m\x1b]8;;\x1b\\`;
+
+        const hyperlink = `\x1b]8;;${response.data.html_url}\x1b\\\x1b[32m${response.data.html_url}\x1b[0m\x1b]8;;\x1b\\`;
         console.log(`Pull request created. use below link to review & merge. \nlink: ${hyperlink}\n`);
     } catch (error) {
-       // console.error(`Error creating pull request:`, error.message);
+        //console.error(`Error creating pull request:`, error);
+        if (error.status == 422) {
+            const response = await getExistingPrOfBranch(config, branchName, baseBranch);
+            const hyperlink = `\x1b]8;;${response.html_url}\x1b\\\x1b[32m${response.html_url}\x1b[0m\x1b]8;;\x1b\\`;
+            console.log(`Pull request updated. use below link to review & merge. \nlink: ${hyperlink}\n`);
+            return;
+        }
         throw error;
     }
 }
+
+async function getExistingPrOfBranch(config, branchName, baseBranch = 'main') {
+    const repoName = config.GITHUB_REPO.split('/').pop().replace('.git', '');
+    const repoOwner = config.GITHUB_USERNAME;
+
+    try {
+        const response = await axios.get(
+            `https://api.github.com/repos/${repoOwner}/${repoName}/pulls`,
+            { headers: { Authorization: `token ${config.GITHUB_TOKEN}` } }
+        );
+        const existingPR = response.data.find(pr => pr.head.ref === branchName && pr.base.ref === baseBranch);
+        return existingPR; 
+    } catch (error) {
+        //console.error(`Error checking pull request for branch '${branchName}':`, error.message);
+        throw error;
+    }
+}
+
 
 async function ensureBranchExists(config, branch) {
     const repoName = config.GITHUB_REPO.split('/').pop().replace('.git', '');
@@ -397,7 +423,10 @@ async function pullFromGithub(config, branch) {
 
         //console.log('Pull operation completed.');
     } catch (error) {
-       //console.error('Error pulling from GitHub:', error.message);
+        //console.error('Error pulling from GitHub:', error.message);
+        if (error.response?.status === 404) {
+            error.message = 'GitHub User, Repository or Branch may not exist.';
+        }
         throw error;
     }
 }
@@ -499,6 +528,9 @@ async function hardPullPostmanCollections(config, branch) {
         //console.log('Hard pull operation completed.');
     } catch (error) {
         //console.error('Error pulling collections from GitHub:', error.message);
+        if (error.response?.status === 404) {
+            error.message = 'GitHub User, Repository or Branch may not exist.';
+        }
         throw error;
     }
 }
