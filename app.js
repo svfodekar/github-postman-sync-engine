@@ -51,7 +51,7 @@ const processCommand = async (command) => {
         case 'help':
             TerminalOpn.showHelp(); // Display available commands
             break;
-        case 'configure':
+        case 'add config':
             TerminalOpn.configureUser(rl); // Start the configuration for API keys
             break;
         case 'exit':
