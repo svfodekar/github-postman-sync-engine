@@ -95,7 +95,7 @@ async function configureUser(rl = {}) {
 // Function to display welcome message
 async function showWelcomeMessage() {
     console.clear();
-    console.log("\n--------------------------- * Git Postman SyncUp Engine * -----------------------------\n");
+    console.log("\n----------------------- * Git Postman SyncUp Engine * -------------------------\n");
 };
 
 async function showuserCredentials() {
