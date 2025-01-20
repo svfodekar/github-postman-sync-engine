@@ -106,7 +106,7 @@ async function showuserCredentials() {
 async function showHelp() {
     console.log(`
     Available Commands:
-    - configure: Configures the Git and Postman.
+    - add config
     - check config
     - git pull <branch-name>
     - git pull hard <branch-name>
