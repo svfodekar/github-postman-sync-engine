@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git-Postman Sync Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Slideshow Box */
+        .slideshow-container {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid white;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            object-fit: contain; /* Ensures full image is visible */
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Git-Postman Sync Engine</h1>
+        <p class="intro">
+            Effortlessly manage, synchronize, and version-control your Postman collections with seamless Git integration. Enhance collaboration and ensure consistency across teams.
+        </p>
+
+        <div class="btn-container">
+            <a href="your-mac-app.dmg" download class="download-btn"> 🍏 Download for Mac </a>
+            <a href="your-linux-app.deb" download class="download-btn"> 🐧 Download for Linux </a>
+            <a href="your-windows-app.exe" download class="download-btn"> 🖥️ Download for Windows </a>
+        </div>
+
+        <div class="slideshow-container">
+            <img src="one.png" class="slide active" alt="App Screenshot">
+            <img src="two.png" class="slide" alt="App Screenshot">
+            <img src="three.png" class="slide" alt="App Screenshot">
+            <img src="four.png" class="slide" alt="App Screenshot">
+        </div>
+    </div>
+
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        function showNextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 2000); // Faster switching (2 seconds)
+    </script>
+
+</body>
+</html>
