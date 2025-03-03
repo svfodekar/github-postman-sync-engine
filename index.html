@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git-Postman Sync Engine</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         * {
             margin: 0;
@@ -22,14 +23,17 @@
             justify-content: center;
             min-height: 100vh;
             padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 12px;
             backdrop-filter: blur(15px);
+            background: rgba(35, 55, 75, 0.9); /* Fallback */
+            padding: 35px;
+            border-radius: 12px;
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out;
             max-width: 700px;
             width: 100%;
         }
@@ -37,12 +41,14 @@
         h1 {
             font-size: 2rem;
             margin-bottom: 10px;
+            animation: zoomIn 1s ease-in-out;
         }
 
         .intro {
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .btn-container {
@@ -66,6 +72,7 @@
             color: white;
             background: rgba(255, 255, 255, 0.2);
             transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            animation: bounceIn 1.2s ease-in-out;
             width: 100%;
             max-width: 250px;
         }
@@ -76,20 +83,20 @@
             box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.4);
         }
 
-        /* Slideshow Box */
         .slideshow-container {
             width: 100%;
-            max-width: 600px;
-            height: 300px;
+            max-width: 585px;
+            height: 288px;
             margin: 20px auto;
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            border: 3px solid white;
+            border: 1px solid white;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: fadeInUp 4s ease-in-out;
         }
 
         .slide {
@@ -100,35 +107,76 @@
             left: 0;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
-            object-fit: contain; /* Ensures full image is visible */
+            object-fit: contain;
         }
 
         .slide.active {
             opacity: 1;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .intro {
+                font-size: 0.9rem;
+            }
+            .download-btn {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            .slideshow-container {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Git-Postman Sync Engine</h1>
-        <p class="intro">
-            Effortlessly manage, synchronize, and version-control your Postman collections with seamless Git integration. Enhance collaboration and ensure consistency across teams.
-        </p>
-
+        <p class="intro">Open source tool to effortlessly manage, synchronize, and version-control your Postman collections with seamless Git integration.</p>
         <div class="btn-container">
-            <a href="your-mac-app.dmg" download class="download-btn"> 🍏 Download for Mac </a>
-            <a href="your-linux-app.deb" download class="download-btn"> 🐧 Download for Linux </a>
-            <a href="your-windows-app.exe" download class="download-btn"> 🖥️ Download for Windows </a>
+            <a href="./exec/Postman Syncup Engine-macos" download class="download-btn" aria-label="Download for Mac"> 🍏 Download for Mac </a>
+            <a href="./exec/Git Postman Syncup Engine-linux" download class="download-btn" aria-label="Download for Linux"> 🐧 Download for Linux </a>
+            <a href="./exec/Git Postman Syncup Engine-win.exe" download class="download-btn" aria-label="Download for Windows"> 🖥️ Download for Windows </a>
+            <a href="https://github.com/svfodekar/github-postman-sync-engine" target="_blank" class="download-btn" aria-label="Download for Windows"> 🌟 Star on GitHub </a>
         </div>
-
         <div class="slideshow-container">
-            <img src="one.png" class="slide active" alt="App Screenshot">
-            <img src="two.png" class="slide" alt="App Screenshot">
-            <img src="three.png" class="slide" alt="App Screenshot">
-            <img src="four.png" class="slide" alt="App Screenshot">
+            <div class="loader"></div>
+            <img src="./pics/one.png" class="slide active" alt="App Screenshot 1">
+            <img src="./pics/two.png" class="slide" alt="App Screenshot 2">
+            <img src="./pics/three.png" class="slide" alt="App Screenshot 3">
+            <img src="./pics/four.png" class="slide" alt="App Screenshot 4">
+            <img src="./pics/five.png" class="slide" alt="App Screenshot 5">
         </div>
+        <footer style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+            Made with ❤️ by <a href="https://github.com/chetanmahawar" target="_blank" style="color: #ebc364; text-decoration: none;">Chetan</a> & <a href="https://github.com/svfodekar" target="_blank" style="color:  #ebc364; text-decoration: none;">Saurabh</a>
+        </footer>
     </div>
 
     <script>
@@ -141,8 +189,7 @@
             slides[currentIndex].classList.add('active');
         }
 
-        setInterval(showNextSlide, 2000); // Faster switching (2 seconds)
+        setInterval(showNextSlide, 3000);
     </script>
-
 </body>
 </html>
